@@ -2,11 +2,11 @@ class ShopAvailability {
   private stage: Stages;
 
   constructor(stage: Stages) {
-    this.stage = stage;
+    this.stage = stage
   }
 
   public setStrategy(stage: Stages) {
-    this.stage = stage;
+    this.stage = stage
   }
   get status() {
     return this.stage.setStatus();
