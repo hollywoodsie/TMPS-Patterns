@@ -1,9 +1,9 @@
 class GameDevelopment {
-  hr: HR;
-  developer: Developer;
-  tester: Tester;
-  needWorkers: boolean;
-  codeExists: boolean;
+  public hr: HR;
+  public developer: Developer;
+  public tester: Tester;
+  public needWorkers: boolean;
+  public codeExists: boolean;
 
   constructor(
     hr: HR,
@@ -18,23 +18,23 @@ class GameDevelopment {
     this.needWorkers = needWorkers;
     this.codeExists = codeExists;
   }
-  hrWork() {
+  public hrWork() {
     if (this.needWorkers) {
       this.needWorkers = false;
       return this.hr.doInterview();
     } else return `We don't need new workers now! I'm chilling!`;
   }
-  developerWork() {
+  public developerWork() {
     this.codeExists = true;
     return this.developer.codeSomething();
   }
-  testerWork() {
+  public testerWork() {
     if (this.codeExists) {
       return this.tester.testProject();
     } else
       return `Developer isn't done with his work, have nothing to test now!`;
   }
-  dismissWorker(worker: ITWorker) {
+  public dismissWorker(worker: ITWorker) {
     this.needWorkers = true;
     return worker.imDone();
   }
@@ -49,25 +49,25 @@ interface ITStuff {
 }
 
 class HR implements ITStuff {
-  doInterview() {
+  public doInterview() {
     return `I'm HR and now i will make an interview!`;
   }
 }
 
 class Developer implements ITWorker {
-  codeSomething() {
+  public codeSomething() {
     return `I'm developer and now i will code some codeblocks! Need to test!`;
   }
-  imDone() {
+  public imDone() {
     return `(Developer)I'm done i'm leaving...`;
   }
 }
 
 class Tester implements ITWorker {
-  testProject() {
+  public testProject() {
     return `I'm tester and now i will test some project functionality!`;
   }
-  imDone() {
+  public imDone() {
     return `(Tester)I'm done, i'm leaving...`;
   }
 }
