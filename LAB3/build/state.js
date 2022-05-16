@@ -90,4 +90,4 @@ computer.openBrowser();
 computer.logInGitHub();
 computer.cloneRepo();
 computer.turnOff();
-computer.logInGitHub();
+computer.logInGitHub(); //wrong

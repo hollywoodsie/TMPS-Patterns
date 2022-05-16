@@ -15,7 +15,6 @@ abstract class SmartHouseLightsOff {
 }
 
 class OffFromKitchen extends SmartHouseLightsOff {
-  // A concrete class that only overrides step two"
   protected secondMethod() {
     console.log('Turning lights in kitchen off...(From kitchen)');
   }
@@ -39,4 +38,5 @@ console.log(`All lights turned off!(From bedroom)`);
 
 imInKitchen.templateMethod();
 console.log(`All lights turned off!(From kitchen)`);
+
 export {};
