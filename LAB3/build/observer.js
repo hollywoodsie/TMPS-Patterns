@@ -8,7 +8,7 @@ class Update {
         this.subs.push(subscriber);
     }
     pushPatchNote() {
-        this.subs.map((observer) => observer.sendMessage());
+        this.subs.map((observer) => observer.check());
     }
 }
 class Player {
@@ -16,7 +16,7 @@ class Player {
         this.nickname = nickname;
         this.email = email;
     }
-    sendMessage() {
+    check() {
         console.log(`${this.nickname} notified about update!`);
     }
 }
@@ -25,7 +25,7 @@ class Developer {
         this.name = name;
         this.branch = branch;
     }
-    sendMessage() {
+    check() {
         console.log(`Message to ${this.name} from ${this.branch}: No bugs detected on patch we pushed, but be ready to fix something.`);
     }
 }
