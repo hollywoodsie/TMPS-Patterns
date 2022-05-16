@@ -1,3 +1,5 @@
+//bad way
+
 // class Bird {
 //   fly(speed) {
 //     return `Flying at ${speed} km/h`;
@@ -35,6 +37,8 @@
 // console.log(flyingBird(superBird));
 // console.log(flyingBird(eagleBird));
 // console.log(flyingBird(pengBird));
+
+//good way
 
 interface Bird {
   fly(): string;

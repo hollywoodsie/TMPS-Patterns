@@ -2,31 +2,29 @@
 //
 // }
 
-// class Auth {
+// class Authentication {
 //   connection: ConcreteDatabaseConnection;
 
 //   constructor(connection: ConcreteDatabaseConnection) {
 //     this.connection = connection;
 //   }
 
-//   async auth(login: string, password: string): Promise<void> {
-//
-//   }
+//   auth(login: string, password: string){}
 // }
 
-interface DBConn {
+interface AbstractDatabaseConnection {
   connect(host: string, user: string, password: string): void;
 }
 
-class ConcreteDatabaseConnection implements DBConn {
+class ConcreteDatabaseConnection implements AbstractDatabaseConnection {
   constructor() {}
   connect(host: string, user: string, password: string): void {}
 }
 
-class Auth {
-  connection: DBConn;
+class Authentication {
+  connection: AbstractDatabaseConnection;
 
-  constructor(connection: DBConn) {
+  constructor(connection: AbstractDatabaseConnection) {
     this.connection = connection;
   }
 

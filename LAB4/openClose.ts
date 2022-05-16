@@ -1,103 +1,47 @@
-// class Rectangle {
-//   width: number;
-//   height: number;
+//bad way
 
-//   constructor(width: number, height: number) {
-//     this.width = width;
-//     this.height = height;
+// class HeroPower {
+//   hero: string;
+
+//   constructor(hero: string) {
+//     this.hero = hero;
+//   }
+
+//   useAbility() {
+//     if (this.hero === 'Malfurion') {
+//       return `Used Malfurion's hero power!`;
+//     }
+//     if (this.hero === 'Rexxar') {
+//       return `Used Rexxar's hero power!`;
+//     }
+//     if (this.hero === 'Illidan') {
+//       return `Used Illidan's hero power!`;
+//     }
 //   }
 // }
-// class CalculationWorker {
-//   parts: Rectangle[];
 
-//   constructor(parts: Rectangle[]) {
-//     this.parts = parts;
-//   }
-
-//   totalAreaOf(): number {
-//     return this.parts.reduce((fullArea: number, shape: Rectangle) => {
-//       return (fullArea += shape.width * shape.height);
-//     }, 0);
-//   }
-// }
-// class Circle {
-//   radius: number;
-
-//   constructor(radius: number) {
-//     this.radius = radius;
-//   }
-// }
-//-------------------------------------------------------------------------------------
-// class CalculationWorker {
-//   // !
-//   parts: [Rectangle | Circle];
-
-//   constructor(parts: [Rectangle | Circle]) {
-//     this.parts = parts;
-//   }
-
-//   totalAreaOf(): number {
-//     return this.parts.reduce((fullArea: number, shape: Rectangle | Circle) => {
-//       // 2. !
-//       //
-//       if (shape instanceof Rectangle) {
-//         return (fullArea += shape.width * shape.height);
-//       } else if (shape instanceof Circle) {
-//         return (fullArea += shape.radius ** 2 * Math.PI);
-//       } else return fullArea;
-//     }, 0);
-//   }
-// }
+// const malfurion = new HeroPower('Malfurion');
+// console.log(malfurion.useAbility());
 
 //good way
-interface CalculationArea {
-  areaOf(): number;
+interface HeroPower {
+  useAbility(): string;
 }
-
-class Rectangle implements CalculationArea {
-  width: number;
-  height: number;
-
-  constructor(width: number, height: number) {
-    this.width = width;
-    this.height = height;
-  }
-
-  areaOf(): number {
-    return this.width * this.height;
+class Malfurion implements HeroPower {
+  useAbility() {
+    return `Used Malfurion's hero power!`;
   }
 }
-
-class Circle implements CalculationArea {
-  radius: number;
-
-  constructor(radius: number) {
-    this.radius = radius;
+class Rexxar implements HeroPower {
+  useAbility() {
+    return `Used Rexxar's hero power!`;
   }
-
-  areaOf(): number {
-    return Math.PI * this.radius ** 2;
+}
+class Illidan implements HeroPower {
+  useAbility() {
+    return `Used Illidan's hero power!`;
   }
 }
 
-class CalculationWorker {
-  parts: CalculationArea[];
-
-  constructor(parts: CalculationArea[]) {
-    this.parts = parts;
-  }
-
-  totalAreaOf(): number {
-    return this.parts.reduce((fullArea: number, shape: CalculationArea) => {
-      return (fullArea += shape.areaOf());
-    }, 0);
-  }
-}
-
-const rect = new Rectangle(10, 10);
-
-const circle = new Circle(5);
-
-const calculator = new CalculationWorker([rect, circle]);
-
-console.log(`Full fullArea = ${calculator.totalAreaOf()}`);
+const malfurion = new Malfurion();
+console.log(malfurion.useAbility());
