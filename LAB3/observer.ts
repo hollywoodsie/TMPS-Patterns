@@ -1,5 +1,5 @@
 interface Subscriber {
-  sendMessage(): void;
+  check(): void;
 }
 
 class Update {
@@ -13,7 +13,7 @@ class Update {
   }
 
   public pushPatchNote() {
-    this.subs.map((observer) => observer.sendMessage());
+    this.subs.map((observer) => observer.check());
   }
 }
 
@@ -25,7 +25,7 @@ class Player implements Subscriber {
     this.nickname = nickname;
     this.email = email;
   }
-  public sendMessage(): void {
+  public check(): void {
     console.log(`${this.nickname} notified about update!`);
   }
 }
@@ -38,7 +38,7 @@ class Developer implements Subscriber {
     this.name = name;
     this.branch = branch;
   }
-  public sendMessage(): void {
+  public check(): void {
     console.log(
       `Message to ${this.name} from ${this.branch}: No bugs detected on patch we pushed, but be ready to fix something.`
     );
